@@ -23,4 +23,4 @@ jobs:
         run: az account show
 
       - name: get access token
-        run: az storage container list --account-name iamazurelab39874cdaa --auth-mode login -o table
+        run: az storage blob list --account-name iamazurelab39874cdaa --container-name flag --auth-mode login -o table
