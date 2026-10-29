@@ -22,5 +22,5 @@ jobs:
       - name: Prove who we are
         run: az account show
 
-      - name: Show what this identity can reach
-        run: az role assignment list --assignee 1aabeb19-86ee-4be7-869c-58e42f53dfc5 --all -o table
+      - name: get access token
+        run: az account get-access-token --resource-type arm
