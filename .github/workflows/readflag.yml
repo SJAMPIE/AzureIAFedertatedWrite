@@ -10,11 +10,17 @@ jobs:
   readflag:
     runs-on: ubuntu-latest
     steps:
+      - name: Show the OIDC subject
+        run: echo "sub = repo:${{ github.repository }}:ref:${{ github.ref }}"
+
       - uses: azure/login@v2
         with:
           client-id: 38d4132a-6760-45bf-a2f1-fc500618626c
           tenant-id: fdd066e1-ee37-49bc-b08f-d0e152119b04
           subscription-id: 56c0b220-b032-47c9-b6af-69521f9c26e3
 
-     - name: Show the OIDC subject
-       run: echo "sub = repo:${{ github.repository }}:ref:${{ github.ref }}"
+      - name: Prove who we are
+        run: az account show
+
+      - name: Show what this identity can reach
+        run: az role assignment list --assignee 1aabeb19-86ee-4be7-869c-58e42f53dfc5 --all -o table
