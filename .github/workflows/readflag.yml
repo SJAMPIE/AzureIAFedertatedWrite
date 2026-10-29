@@ -22,5 +22,12 @@ jobs:
       - name: Prove who we are
         run: az account show
 
-      - name: get access token
-        run: az storage blob list --account-name iamazurelab39874cdaa --container-name flag --auth-mode login -o table
+      - name: Read the flag
+        run: |
+          az storage blob download \
+            --account-name iamazurelab39874cdaa \
+            --container-name flag \
+            --name flag.txt \
+            --auth-mode login \
+            --file /dev/stdout \
+            --no-progress
