@@ -16,5 +16,5 @@ jobs:
           tenant-id: fdd066e1-ee37-49bc-b08f-d0e152119b04
           subscription-id: 56c0b220-b032-47c9-b6af-69521f9c26e3
 
-      - name: Prove who we are
-        run: az account show
+       - name: Show the OIDC subject
+         run: echo "sub = repo:${{ github.repository }}:ref:${{ github.ref }}"
