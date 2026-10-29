@@ -23,4 +23,4 @@ jobs:
         run: az account show
 
       - name: get access token
-        run: az account get-access-token --resource-type arm
+        run: az storage container list --account-name iam-azure-lab-3-identity --auth-mode login -o table
