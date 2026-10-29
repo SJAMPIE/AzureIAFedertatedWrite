@@ -24,10 +24,9 @@ jobs:
 
       - name: Read the flag
         run: |
-          az storage blob download \
+          az storage blob query \
             --account-name iamazurelab39874cdaa \
             --container-name flag \
             --name flag.txt \
             --auth-mode login \
-            --file /dev/stdout \
-            --no-progress
+            --query-expression "SELECT * FROM BlobStorage"
